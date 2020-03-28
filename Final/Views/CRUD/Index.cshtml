@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2> Links de los Crud's</h2>
+
+<div class="card" style="width: 18rem;">
+    <img src=@Url.Content("~/Fotos/producto.png") class="card-img-top" style="width:80px;height:60px;" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Crud de productos</h5>
+        <p class="card-text">Crud de productos con los campos: ID , Nombre y Precio</p>
+        <a href= @Url.Action("Index", "Stocks") class="btn btn-primary stretched-link">Crud de productos</a>
+    </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+    <img src=@Url.Content("~/Fotos/proveedor.jpg") class="card-img-top" style="width:80px;height:60px;" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Crud de proveedores</h5>
+        <p class="card-text">Crud de proveedores con los campos : ID, Cedula, Nombre, Telefono y Email</p>
+        <a href= @Url.Action("Index", "Facturacions") class="btn btn-primary stretched-link">Crud de proveedores </a>
+    </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+    <img src=@Url.Content("~/Fotos/cliente.jpg") class="card-img-top" style="width:80px;height:60px;" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Crud de clientes</h5>
+        <p class="card-text">Crud de clientes con los campos : ID, Cedula, Nombre, Telefono, Email y Categorias.</p>
+        <a href= @Url.Action("Index", "Clientes") class="btn btn-primary stretched-link">Crud de clientes</a>
+    </div>
+</div>
