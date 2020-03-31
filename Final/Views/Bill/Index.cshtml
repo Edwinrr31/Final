@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2> Division de Facturacion </h2>
+
+<div class="card" style="width: 18rem;">
+    <img src=@Url.Content("~/Fotos/mercancia.jpg") class="card-img-top" style="width:80px;height:80px;" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Entrada de mercancias </h5>
+        <p class="card-text">Entrada de mercancias para los stocks de productos</p>
+        <a href=@Url.Action("Index", "Stocks") class="btn btn-primary stretched-link">Mercancia</a> <br /> 
+    </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+    <img src=@Url.Content("~/Fotos/facturacion.jpg") class="card-img-top" style="width:80px;height:60px;" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Facturacion</h5>
+        <p class="card-text">Facturacion de los productos</p>
+        <a href=@Url.Action("Index", "Facturacions") class="btn btn-primary stretched-link">Facturacion</a>
+    </div>
+</div>
+
