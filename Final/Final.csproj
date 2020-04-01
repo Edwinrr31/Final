@@ -141,6 +141,7 @@
     <Compile Include="Models\Clientes.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ConsultaModel.cs" />
     <Compile Include="Models\Facturacion.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
