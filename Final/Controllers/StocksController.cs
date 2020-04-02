@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Final.Models;
+using Rotativa;
 
 namespace Final.Controllers
 {
@@ -89,6 +90,11 @@ namespace Final.Controllers
             return View(stock);
         }
 
+        public ActionResult Imprimir()
+        {
+            var print = new ActionAsPdf("Index");
+            return print;
+        }
         // GET: Stocks/Delete/5
         public ActionResult Delete(int? id)
         {

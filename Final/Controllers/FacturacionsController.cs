@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Final.Models;
+using Rotativa;
 
 namespace Final.Controllers
 {
@@ -58,6 +59,11 @@ namespace Final.Controllers
             return View(facturacion);
         }
 
+        public ActionResult Imprimir()
+        {
+            var print = new ActionAsPdf("Index");
+            return print;
+        }
         // GET: Facturacions/Edit/5
         public ActionResult Edit(int? id)
         {

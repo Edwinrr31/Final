@@ -7,6 +7,6 @@ namespace Final.Models
 {
     public class ConsultaModel
     {
-        public Consulta
+        
     }
 }

@@ -83,7 +83,7 @@ F:\ITLA\Programacion III\Final\Final\Final\bin\es\System.Web.Razor.resources.dll
 F:\ITLA\Programacion III\Final\Final\Final\bin\es\System.Web.WebPages.resources.dll
 F:\ITLA\Programacion III\Final\Final\Final\bin\es\System.Web.WebPages.Deployment.resources.dll
 F:\ITLA\Programacion III\Final\Final\Final\bin\es\System.Web.WebPages.Razor.resources.dll
-F:\ITLA\Programacion III\Final\Final\Final\obj\Debug\Final.csprojAssemblyReference.cache
 F:\ITLA\Programacion III\Final\Final\Final\obj\Debug\Final.csproj.CopyComplete
 F:\ITLA\Programacion III\Final\Final\Final\obj\Debug\Final.dll
 F:\ITLA\Programacion III\Final\Final\Final\obj\Debug\Final.pdb
+F:\ITLA\Programacion III\Final\Final\Final\bin\Rotativa.dll
