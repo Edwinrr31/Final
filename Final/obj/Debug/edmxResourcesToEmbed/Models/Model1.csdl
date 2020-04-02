@@ -28,8 +28,11 @@
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Precio" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <Property Name="Cantidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Proveedor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityContainer Name="FinalEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="FinalEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Clientes" EntityType="Self.Clientes" />
     <EntitySet Name="Facturacion" EntityType="Self.Facturacion" />
     <EntitySet Name="Stock" EntityType="Self.Stock" />

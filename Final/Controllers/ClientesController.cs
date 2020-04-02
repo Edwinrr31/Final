@@ -13,7 +13,7 @@ namespace Final.Controllers
 {
     public class ClientesController : Controller
     {
-        private FinalEntities1 db = new FinalEntities1();
+        private FinalEntities3 db = new FinalEntities3();
 
         // GET: Clientes
         public ActionResult Index()

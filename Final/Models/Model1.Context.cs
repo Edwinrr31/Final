@@ -13,10 +13,10 @@ namespace Final.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FinalEntities1 : DbContext
+    public partial class FinalEntities3 : DbContext
     {
-        public FinalEntities1()
-            : base("name=FinalEntities1")
+        public FinalEntities3()
+            : base("name=FinalEntities3")
         {
         }
     
