@@ -5,9 +5,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Cedula" Type="Int32" Nullable="false" />
+    <Property Name="Cedula" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Telefono" Type="Int32" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Categoria" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
@@ -16,9 +16,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Cedula" Type="Int32" Nullable="false" />
+    <Property Name="Cedula" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Telefono" Type="Int32" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="Stock">
@@ -27,9 +27,9 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Precio" Type="Int32" Nullable="false" />
+    <Property Name="Precio" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
-  <EntityContainer Name="FinalEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="FinalEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Clientes" EntityType="Self.Clientes" />
     <EntitySet Name="Facturacion" EntityType="Self.Facturacion" />
     <EntitySet Name="Stock" EntityType="Self.Stock" />

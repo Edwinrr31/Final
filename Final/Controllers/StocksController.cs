@@ -13,7 +13,7 @@ namespace Final.Controllers
 {
     public class StocksController : Controller
     {
-        private FinalEntities db = new FinalEntities();
+        private FinalEntities1 db = new FinalEntities1();
 
         // GET: Stocks
         public ActionResult Index()
