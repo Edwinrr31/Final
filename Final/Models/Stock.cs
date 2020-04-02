@@ -17,5 +17,11 @@ namespace Final.Models
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Precio { get; set; }
+
+        public string Cantidad { get; set; }
+
+        public string Proveedor { get; set; }
+
+        public DateTime Fecha { get; set; }
     }
 }

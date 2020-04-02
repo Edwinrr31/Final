@@ -2,11 +2,15 @@ Create database Final
 
 Use Final
 
+select * from Stock
+
 create table Stock (
 Id Int Primary Key,
 Nombre varchar (30) not null,
 Precio varchar (30) not null, )
 
+Alter table Stock
+Add Fecha datetime not null
 
 
 create table Facturacion (

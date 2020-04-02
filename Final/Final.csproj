@@ -137,6 +137,7 @@
     <Compile Include="Controllers\CRUDController.cs" />
     <Compile Include="Controllers\FacturacionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MercanciaController.cs" />
     <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -148,6 +149,7 @@
     <Compile Include="Models\Facturacion.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Mercancia.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -243,6 +245,11 @@
     <Content Include="Views\Facturacions\Index.cshtml" />
     <Content Include="Views\CRUD\Index.cshtml" />
     <Content Include="Views\Bill\Index.cshtml" />
+    <Content Include="Views\Mercancia\Create.cshtml" />
+    <Content Include="Views\Mercancia\Delete.cshtml" />
+    <Content Include="Views\Mercancia\Details.cshtml" />
+    <Content Include="Views\Mercancia\Edit.cshtml" />
+    <Content Include="Views\Mercancia\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
