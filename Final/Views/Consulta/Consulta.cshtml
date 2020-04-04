@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Consulta";
+}
+
+<h2>Consulta</h2>
+@using(Html.BeginForm("Consulta","Consulta",FormMethod.Get))
+{
+    @Html.TextBox("searching")
+    <input Type="submit" value="submit" />
+}
+
+<table>
+    <tr>
+        <th> Nombre </th> 
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td> @Html.DisplayFor(modelItem => item.Nombre)</td>
+        </tr>
+    }
+
+</table>

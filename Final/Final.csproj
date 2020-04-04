@@ -250,10 +250,12 @@
     <Content Include="Views\Mercancia\Details.cshtml" />
     <Content Include="Views\Mercancia\Edit.cshtml" />
     <Content Include="Views\Mercancia\Index.cshtml" />
+    <Content Include="Views\Consulta\Index.cshtml" />
+    <Content Include="Views\Consulta\Filtro.cshtml" />
+    <Content Include="Views\Consulta\Consulta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Consulta\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
