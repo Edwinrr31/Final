@@ -1,11 +1,10 @@
 ﻿@model IEnumerable<Final.Models.Stock>
 
-
 @{
-    ViewBag.Title = "Consulta";
+    ViewBag.Title = "Producto";
 }
 
-<h2>Consulta</h2>
+<h2>Consulta de productos por nombre</h2>
 @using (Html.BeginForm("Consulta", "Consulta", FormMethod.Get))
 {
     @Html.TextBox("searching")
@@ -24,4 +23,3 @@
     }
 
 </table>
-

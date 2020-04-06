@@ -28,5 +28,7 @@ namespace Final.Models
         public virtual DbSet<Clientes> Clientes { get; set; }
         public virtual DbSet<Facturacion> Facturacion { get; set; }
         public virtual DbSet<Stock> Stock { get; set; }
+
+        public System.Data.Entity.DbSet<Final.Models.Mercancia> Mercancias { get; set; }
     }
 }
