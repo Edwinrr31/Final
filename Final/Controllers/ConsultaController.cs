@@ -23,68 +23,68 @@ namespace Final.Controllers
             return View();
         }
 
-        public ActionResult Producto(String Product)
+        public ActionResult Producto(String searching)
         {
             var Final = from s in db.Stock
                         select s;
 
-            if (!String.IsNullOrEmpty(Product))
+            if (!String.IsNullOrEmpty(searching))
             {
-                Final = Final.Where(s => s.Nombre.Contains(Product));
+                Final = Final.Where(s => s.Nombre.Contains(searching));
             }
             return View(Final.ToList());
         }
 
-        public ActionResult Cliente(String Client)
+        public ActionResult Cliente(String searching)
         {
             var Final = from s in db.Clientes
                         select s;
 
-            if (!String.IsNullOrEmpty(Client))
+            if (!String.IsNullOrEmpty(searching))
             {
-                Final = Final.Where(s => s.Nombre.Contains(Client));
-                Final = Final.Where(s => s.Categoria.Contains(Client));
+                Final = Final.Where(s => s.Nombre.Contains(searching));
+                Final = Final.Where(s => s.Categoria.Contains(searching));
             }
             return View(Final.ToList());
         }
 
-        public ActionResult Proveedores(String Proveedor)
+        public ActionResult Proveedores(String searching)
         {
             var Final = from s in db.Facturacion
                         select s;
 
-            if (!String.IsNullOrEmpty(Proveedor))
+            if (!String.IsNullOrEmpty(searching))
             {
-                Final = Final.Where(s => s.Nombre.Contains(Proveedor));
-                Final = Final.Where(s => s.Email.Contains(Proveedor));
+                Final = Final.Where(s => s.Nombre.Contains(searching));
+                Final = Final.Where(s => s.Email.Contains(searching));
             }
             return View(Final.ToList());
         }
 
-        public ActionResult Entrada(String Entradas)
+        public ActionResult Entrada(String searching)
         {
             var Final = from s in db.Stock
                         select s;
 
-            if (!String.IsNullOrEmpty(Entradas))
+            if (!String.IsNullOrEmpty(searching))
             {
-                Final = Final.Where(s => s.Nombre.Contains(Entradas));
+                Final = Final.Where(s => s.Nombre.Contains(searching));
                 
-                Final = Final.Where(s => s.Proveedor.Contains(Entradas));
+                Final = Final.Where(s => s.Proveedor.Contains(searching));
             }
             return View(Final.ToList());
         }
 
-        public ActionResult Facturaciones(String Billing)
+        public ActionResult Facturaciones(String searching)
         {
             var Final = from s in db.Stock
                         select s;
 
-            if (!String.IsNullOrEmpty(Billing))
+            if (!String.IsNullOrEmpty(searching))
             {
-                Final = Final.Where(s => s.Nombre.Contains(Billing));
-                
+                Final = Final.Where(s => s.Nombre.Contains(searching));
             }
+
             return View(Final.ToList());
         }
         public ActionResult Consulta(String searching)

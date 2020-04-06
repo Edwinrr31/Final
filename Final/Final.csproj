@@ -254,6 +254,9 @@
     <Content Include="Views\Consulta\Consulta.cshtml" />
     <Content Include="Views\Consulta\Producto.cshtml" />
     <Content Include="Views\Consulta\Cliente.cshtml" />
+    <Content Include="Views\Consulta\Proveedores.cshtml" />
+    <Content Include="Views\Consulta\Entrada.cshtml" />
+    <Content Include="Views\Consulta\Facturaciones.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

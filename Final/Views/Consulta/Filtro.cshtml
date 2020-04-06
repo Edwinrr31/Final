@@ -5,8 +5,8 @@
 
 <h2>Filtro de contenidos</h2>
 
-<button type="button" class="btn btn-primary btn-lg btn-block">Los productos </button>
-<button type="button" class="btn btn-secondary btn-lg btn-block">Los clientes</button>
-<button type="button" class="btn btn-primary btn-lg btn-block">Los proveedores</button>
-<button type="button" class="btn btn-secondary btn-lg btn-block">Las entradas</button>
-<button type="button" class="btn btn-primary btn-lg btn-block">Las facturaciones</button>
+<a href=@Url.Action("Producto", "Consulta") class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Producto</a>
+<a href=@Url.Action("Cliente", "Consulta") class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Cliente</a>
+<a href=@Url.Action("Facturaciones", "Consulta") class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Facturacion</a>
+<a href=@Url.Action("Entrada", "Consulta") class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Entradas</a>
+<a href=@Url.Action("Proveedores", "Consulta") class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Proveedores</a>

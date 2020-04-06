@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<Final.Models.Stock>
 
 @{
-    ViewBag.Title = "Producto";
+    ViewBag.Title = "Facturaciones";
 }
 
-<h2>Consulta de productos por nombre</h2>
-@using (Html.BeginForm("Producto", "Consulta", FormMethod.Get))
+<h2>Consulta de clientes por Nombre y Categoria</h2>
+
+@using (Html.BeginForm("Facturaciones", "Consulta", FormMethod.Get))
 {
     @Html.TextBox("searching")
     <input Type="submit" value="submit" />
@@ -13,12 +14,14 @@
 
 <table>
     <tr>
-        <th> Nombre </th>
+        <th> Fecha </th>
+        <th> Cliente </th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
             <td> @Html.DisplayFor(modelItem => item.Nombre)</td>
+            <td> @Html.DisplayFor(modelItem => item.Categoria)</td>
         </tr>
     }
 

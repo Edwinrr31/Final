@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Final.Models.Facturacion>
+
+@{
+    ViewBag.Title = "Proveedores";
+}
+
+<h2>Consulta de clientes por Nombre y Categoria</h2>
+
+@using (Html.BeginForm("Proveedores", "Consulta", FormMethod.Get))
+{
+    @Html.TextBox("searching")
+    <input Type="submit" value="submit" />
+}
+
+<table>
+    <tr>
+        <th> Nombre </th>
+        <th> Email </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @Html.DisplayFor(modelItem => item.Nombre)</td>
+            <td> @Html.DisplayFor(modelItem => item.Email)</td>
+        </tr>
+    }
+
+</table>
