@@ -15,6 +15,8 @@ namespace Final.Models
     
     public partial class FinalEntities3 : DbContext
     {
+        internal object facturacion;
+
         public FinalEntities3()
             : base("name=FinalEntities3")
         {

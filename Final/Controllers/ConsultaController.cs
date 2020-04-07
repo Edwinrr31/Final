@@ -45,6 +45,7 @@ namespace Final.Controllers
                 Final = Final.Where(s => s.Nombre.Contains(searching));
                 Final = Final.Where(s => s.Categoria.Contains(searching));
             }
+
             return View(Final.ToList());
         }
 
