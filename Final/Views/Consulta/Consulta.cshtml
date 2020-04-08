@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Final.Models.Stock>
+﻿@model IEnumerable<Final.Models.Producto>
 
 
 @{
@@ -6,6 +6,7 @@
 }
 
 <h2>Consulta</h2>
+@Html.ActionLink("Impresion", "ImprimirConsulta")
 @using (Html.BeginForm("Consulta", "Consulta", FormMethod.Get))
 {
     @Html.TextBox("searching")

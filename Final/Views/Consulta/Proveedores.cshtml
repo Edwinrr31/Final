@@ -5,7 +5,7 @@
 }
 
 <h2>Consulta de clientes por Nombre y Categoria</h2>
-
+@Html.ActionLink("Impresion", "ImprimirProveedores")
 @using (Html.BeginForm("Proveedores", "Consulta", FormMethod.Get))
 {
     @Html.TextBox("searching")

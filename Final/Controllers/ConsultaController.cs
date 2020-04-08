@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Final.Models;
-
+using Rotativa;
 namespace Final.Controllers
 {
     public class ConsultaController : Controller
@@ -18,6 +18,41 @@ namespace Final.Controllers
             return View();
         }
 
+        public ActionResult Imprimir()
+        {
+            var print = new ActionAsPdf("Index");
+            return print;
+        }
+
+        public ActionResult ImprimirProveedores()
+        {
+            var print = new ActionAsPdf("Proveedores");
+            return print;
+        }
+
+        public ActionResult ImprimirProducto()
+        {
+            var print = new ActionAsPdf("Producto");
+            return print;
+        }
+
+        public ActionResult ImprimirFacturaciones()
+        {
+            var print = new ActionAsPdf("Facturaciones");
+            return print;
+        }
+
+        public ActionResult ImprimirEntrada()
+        {
+            var print = new ActionAsPdf("Entrada");
+            return print;
+        }
+
+        public ActionResult ImprimirCliente()
+        {
+            var print = new ActionAsPdf("Cliente");
+            return print;
+        }
         public ActionResult Filtro()
         {
             return View();
@@ -72,6 +107,8 @@ namespace Final.Controllers
                 Final = Final.Where(s => s.Nombre.Contains(searching));
                 
                 Final = Final.Where(s => s.Proveedor.Contains(searching));
+
+                Final = Final.Where(x => !Final.Select(h => h.Fecha).Contains(x.Fecha));
             }
             return View(Final.ToList());
         }
@@ -84,13 +121,15 @@ namespace Final.Controllers
             if (!String.IsNullOrEmpty(searching))
             {
                 Final = Final.Where(s => s.Nombre.Contains(searching));
+                Final = Final.Where(x => !Final.Select(h => h.Fecha).Contains(x.Fecha));
+
             }
 
             return View(Final.ToList());
         }
         public ActionResult Consulta(String searching)
         {
-            var Final = from s in db.Stock
+            var Final = from s in db.Producto
                         select s;
 
             if (!String.IsNullOrEmpty(searching))

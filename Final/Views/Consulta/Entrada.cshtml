@@ -5,7 +5,7 @@
 }
 
 <h2>Consulta de Entradas por Producto, Fecha y Proveedor</h2>
-
+@Html.ActionLink("Impresion", "ImprimirEntrada")
 @using (Html.BeginForm("Entrada", "Consulta", FormMethod.Get))
 {
     @Html.TextBox("searching")
@@ -20,10 +20,11 @@
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <td> @Html.DisplayFor(modelItem => item.Nombre)</td>
-            <td> @Html.DisplayFor(modelItem => item.Proveedor)</td>
-        </tr>
+<tr>
+    <td> @Html.DisplayFor(modelItem => item.Nombre)</td>
+    <td> @Html.DisplayFor(modelItem => item.Proveedor)</td>
+    <td> @Html.DisplayFor(modelItem => item.Fecha)</td>
+</tr>
     }
 
 </table>

@@ -5,7 +5,7 @@
 }
 
 <h2>Consulta de clientes por Nombre y Categoria</h2>
-
+@Html.ActionLink("Impresion", "ImprimirCliente")
 @using (Html.BeginForm("Cliente", "Consulta", FormMethod.Get))
 {
     @Html.TextBox("searching")
@@ -14,14 +14,15 @@
 
 <table>
     <tr>
-        <th> Nombre </th> <th> Categoria </th>
+        <th> Nombre </th>
+        <th> Categoria </th>
     </tr>
     @foreach (var item in Model)
     {
-<tr>
-    <td> @Html.DisplayFor(modelItem => item.Nombre)</td>
-    <td> @Html.DisplayFor(modelItem => item.Categoria)</td>
-</tr>
+        <tr>
+            <td> @Html.DisplayFor(modelItem => item.Nombre)</td>
+            <td> @Html.DisplayFor(modelItem => item.Categoria)</td>
+        </tr>
     }
 
 </table>
