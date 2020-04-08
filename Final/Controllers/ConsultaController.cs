@@ -9,7 +9,7 @@ namespace Final.Controllers
 {
     public class ConsultaController : Controller
     {
-         FinalEntities3 db = new FinalEntities3();
+         FinalEntities4 db = new FinalEntities4();
 
 
         // GET: Consulta

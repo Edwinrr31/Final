@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="FinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Clientes">
           <Key>
             <PropertyRef Name="Id" />
@@ -26,6 +33,27 @@
           <Property Name="Telefono" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
+        <EntityType Name="ListaVenta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VentaId" Type="int" />
+          <Property Name="ProductoId" Type="int" />
+          <Property Name="Cantidad" Type="int" />
+          <Property Name="Total" Type="float" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Precio" Type="float" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="Foto" Type="varchar" MaxLength="200" />
+          <Property Name="CategoriaId" Type="int" />
+        </EntityType>
         <EntityType Name="Stock">
           <Key>
             <PropertyRef Name="Id" />
@@ -37,16 +65,86 @@
           <Property Name="Cantidad" Type="varchar" MaxLength="30" />
           <Property Name="Proveedor" Type="varchar" MaxLength="30" />
         </EntityType>
+        <EntityType Name="Venta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DiaVenta" Type="datetime" />
+          <Property Name="Subtotal" Type="float" />
+          <Property Name="Iva" Type="float" />
+          <Property Name="Total" Type="float" />
+        </EntityType>
+        <Association Name="FK__ListaVent__Produ__3E52440B">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+          <End Role="ListaVenta" Type="Self.ListaVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ListaVenta">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ListaVent__Venta__3D5E1FD2">
+          <End Role="Venta" Type="Self.Venta" Multiplicity="0..1" />
+          <End Role="ListaVenta" Type="Self.ListaVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Venta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ListaVenta">
+              <PropertyRef Name="VentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Producto__Catego__38996AB5">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="CategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="FinalModelStoreContainer">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Facturacion" EntityType="Self.Facturacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ListaVenta" EntityType="Self.ListaVenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Venta" EntityType="Self.Venta" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ListaVent__Produ__3E52440B" Association="Self.FK__ListaVent__Produ__3E52440B">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="ListaVenta" EntitySet="ListaVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ListaVent__Venta__3D5E1FD2" Association="Self.FK__ListaVent__Venta__3D5E1FD2">
+            <End Role="Venta" EntitySet="Venta" />
+            <End Role="ListaVenta" EntitySet="ListaVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Producto__Catego__38996AB5" Association="Self.FK__Producto__Catego__38996AB5">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FinalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__Producto__Catego__38996AB5" FromRole="Categoria" ToRole="Producto" />
+        </EntityType>
         <EntityType Name="Clientes">
           <Key>
             <PropertyRef Name="Id" />
@@ -68,6 +166,31 @@
           <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
+        <EntityType Name="ListaVenta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VentaId" Type="Int32" />
+          <Property Name="ProductoId" Type="Int32" />
+          <Property Name="Cantidad" Type="Int32" />
+          <Property Name="Total" Type="Double" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__ListaVent__Produ__3E52440B" FromRole="ListaVenta" ToRole="Producto" />
+          <NavigationProperty Name="Venta" Relationship="Self.FK__ListaVent__Venta__3D5E1FD2" FromRole="ListaVenta" ToRole="Venta" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Precio" Type="Double" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="Foto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CategoriaId" Type="Int32" />
+          <NavigationProperty Name="Categoria" Relationship="Self.FK__Producto__Catego__38996AB5" FromRole="Producto" ToRole="Categoria" />
+          <NavigationProperty Name="ListaVenta" Relationship="Self.FK__ListaVent__Produ__3E52440B" FromRole="Producto" ToRole="ListaVenta" />
+        </EntityType>
         <EntityType Name="Stock">
           <Key>
             <PropertyRef Name="Id" />
@@ -79,17 +202,88 @@
           <Property Name="Cantidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Proveedor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="FinalEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityType Name="Venta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DiaVenta" Type="DateTime" Precision="3" />
+          <Property Name="Subtotal" Type="Double" />
+          <Property Name="Iva" Type="Double" />
+          <Property Name="Total" Type="Double" />
+          <NavigationProperty Name="ListaVenta" Relationship="Self.FK__ListaVent__Venta__3D5E1FD2" FromRole="Venta" ToRole="ListaVenta" />
+        </EntityType>
+        <Association Name="FK__Producto__Catego__38996AB5">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="CategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ListaVent__Produ__3E52440B">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+          <End Role="ListaVenta" Type="Self.ListaVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ListaVenta">
+              <PropertyRef Name="ProductoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ListaVent__Venta__3D5E1FD2">
+          <End Role="Venta" Type="Self.Venta" Multiplicity="0..1" />
+          <End Role="ListaVenta" Type="Self.ListaVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Venta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ListaVenta">
+              <PropertyRef Name="VentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FinalEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" />
           <EntitySet Name="Clientes" EntityType="Self.Clientes" />
           <EntitySet Name="Facturacion" EntityType="Self.Facturacion" />
+          <EntitySet Name="ListaVenta" EntityType="Self.ListaVenta" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" />
           <EntitySet Name="Stock" EntityType="Self.Stock" />
+          <EntitySet Name="Venta" EntityType="Self.Venta" />
+          <AssociationSet Name="FK__Producto__Catego__38996AB5" Association="Self.FK__Producto__Catego__38996AB5">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ListaVent__Produ__3E52440B" Association="Self.FK__ListaVent__Produ__3E52440B">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="ListaVenta" EntitySet="ListaVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ListaVent__Venta__3D5E1FD2" Association="Self.FK__ListaVent__Venta__3D5E1FD2">
+            <End Role="Venta" EntitySet="Venta" />
+            <End Role="ListaVenta" EntitySet="ListaVenta" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="FinalModelStoreContainer" CdmEntityContainer="FinalEntities3">
+        <EntityContainerMapping StorageEntityContainer="FinalModelStoreContainer" CdmEntityContainer="FinalEntities4">
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="FinalModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Clientes">
             <EntityTypeMapping TypeName="FinalModel.Clientes">
               <MappingFragment StoreEntitySet="Clientes">
@@ -113,6 +307,29 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ListaVenta">
+            <EntityTypeMapping TypeName="FinalModel.ListaVenta">
+              <MappingFragment StoreEntitySet="ListaVenta">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="FinalModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Stock">
             <EntityTypeMapping TypeName="FinalModel.Stock">
               <MappingFragment StoreEntitySet="Stock">
@@ -122,6 +339,17 @@
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
                 <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Venta">
+            <EntityTypeMapping TypeName="FinalModel.Venta">
+              <MappingFragment StoreEntitySet="Venta">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DiaVenta" ColumnName="DiaVenta" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

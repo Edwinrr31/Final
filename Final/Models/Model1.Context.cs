@@ -13,12 +13,10 @@ namespace Final.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FinalEntities3 : DbContext
+    public partial class FinalEntities4 : DbContext
     {
-        internal object facturacion;
-
-        public FinalEntities3()
-            : base("name=FinalEntities3")
+        public FinalEntities4()
+            : base("name=FinalEntities4")
         {
         }
     
@@ -27,10 +25,12 @@ namespace Final.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Categoria> Categoria { get; set; }
         public virtual DbSet<Clientes> Clientes { get; set; }
         public virtual DbSet<Facturacion> Facturacion { get; set; }
+        public virtual DbSet<ListaVenta> ListaVenta { get; set; }
+        public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<Stock> Stock { get; set; }
-
-        public System.Data.Entity.DbSet<Final.Models.Mercancia> Mercancias { get; set; }
+        public virtual DbSet<Venta> Venta { get; set; }
     }
 }

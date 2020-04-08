@@ -13,12 +13,12 @@ namespace Final.Controllers
         //
         // GET: /Producto/
 
-        private FinalEntities3 ce = new FinalEntities3();
+        private FinalEntities4 ce = new FinalEntities4();
 
         public ActionResult Index()
         {
 
-            return View(ce.Facturacion.ToList().OrderBy(x => x.Nombre));
+            return View((ce.Producto.ToList().OrderBy(s => s.Nombre)));
         }
 
         }

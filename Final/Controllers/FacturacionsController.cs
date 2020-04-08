@@ -13,7 +13,7 @@ namespace Final.Controllers
 {
     public class FacturacionsController : Controller
     {
-        private FinalEntities3 db = new FinalEntities3();
+        private FinalEntities4 db = new FinalEntities4();
 
         // GET: Facturacions
         public ActionResult Index()
