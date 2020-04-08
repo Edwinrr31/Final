@@ -9,12 +9,12 @@ namespace Final.Models
     {
         public class CarritoItem
         {
-            private Facturacion _facturacion;
+            private Producto _producto;
 
-            public Facturacion Producto
+            public Producto Producto
             {
-                get { return _facturacion; }
-                set { _facturacion = value; }
+                get { return _producto; }
+                set { _producto = value; }
             }
             private int _cantidad;
 
@@ -29,11 +29,12 @@ namespace Final.Models
 
             }
 
-            public CarritoItem(Facturacion Facturacion, int cantidad)
+            public CarritoItem(Producto producto, int cantidad)
             {
-                this._facturacion = Facturacion;
+                this._producto = producto;
                 this._cantidad = cantidad;
             }
         }
     }
+
 }
