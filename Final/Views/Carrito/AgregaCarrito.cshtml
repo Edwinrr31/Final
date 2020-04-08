@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "AgregaCarrito";
 }
 
@@ -22,12 +23,13 @@
         {
 
             foreach (var item in (List<Final.Models.ListaVenta>)Session["carrito"])
+
             {
                 total += (double)(item.Cantidad * item.Producto.Precio);
                 <tr>
                     <td>@item.Producto.Id</td>
                     <td>@item.Producto.Nombre</td>
-                    <td>@String.Format("{0:C}", item.Producto.Precio)</td>
+                    <td>@String.Format("{0:C}", (item.Producto.Precio))</td>
                     <td>@item.Cantidad</td>
                     <td>@String.Format("{0:C}", (item.Cantidad * item.Producto.Precio))</td>
                     <td>@Html.ActionLink("Eliminar", "Delete", "Carrito", new { Id = item.Producto.Id }, null)</td>
@@ -43,3 +45,4 @@
     </tfoot>
 </table>
 @Html.ActionLink("Seguir Comprando", "Index", "Producto", null, null)
+

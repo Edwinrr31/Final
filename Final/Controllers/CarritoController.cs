@@ -13,7 +13,7 @@ namespace Final.Controllers
         //
         // GET: /Carrito/
         private FinalEntities4 ce = new FinalEntities4();
-
+        [Route("AgregaCarrito/{id:int}")]
         public ActionResult AgregaCarrito(int id)
         {
             if (Session["carrito"] == null)
